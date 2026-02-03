@@ -4,7 +4,11 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
 
 SRCS = main.c\
-		parse.c
+		parse.c\
+		init.c\
+		routine.c\
+		time_utils.c\
+		monitoring.c
 OBJDIR = obj
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
