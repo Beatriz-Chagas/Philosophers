@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchagas <bchagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chagas <chagas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 23:51:02 by bchagas           #+#    #+#             */
-/*   Updated: 2026/02/03 07:25:41 by bchagas          ###   ########.fr       */
+/*   Updated: 2026/05/26 03:30:40 by chagas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	init_forks(t_rules *r)
 	return (0);
 }
 
-
 int	init_philos(t_rules *r, t_philo **philos)
 {
 	int	i;
@@ -49,11 +48,3 @@ int	init_philos(t_rules *r, t_philo **philos)
 	}
 	return (0);
 }
-// int	init_rules(t_rules *r)
-// {
-// 	r->dead = 0;
-// 	r->start_time = get_time();
-// 	pthread_mutex_init(&r->print, NULL);
-// 	pthread_mutex_init(&r->death, NULL);
-// 	return (0);
-// }

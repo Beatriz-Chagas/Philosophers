@@ -4,8 +4,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
 
 SRCS = main.c\
-		parse.c\
 		init.c\
+		parse.c\
 		routine.c\
 		time_utils.c\
 		monitoring.c
