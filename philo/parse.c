@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchagas <bchagas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bchagas- <bchagas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 06:08:59 by bchagas           #+#    #+#             */
-/*   Updated: 2026/02/03 07:38:23 by bchagas          ###   ########.fr       */
+/*   Updated: 2026/05/26 21:06:24 by bchagas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long	ft_atol(char *str)
 {
 	long	res;
 	int		i;
-	
+
 	res = 0;
 	i = 0;
 	while (str[i])
@@ -43,12 +43,13 @@ long	ft_atol(char *str)
 	return (res);
 }
 
-int parse_args (int ac, char **av, t_rules *rules)
+int	parse_args(int ac, char **av, t_rules *rules)
 {
-	int	i = 1;
-	
-	if  (ac < 5 || ac > 6)
-		return  (1);
+	int	i;
+
+	i = 1;
+	if (ac < 5 || ac > 6)
+		return (1);
 	while (i < ac)
 	{
 		if (!is_digit(av[i]))
@@ -66,5 +67,5 @@ int parse_args (int ac, char **av, t_rules *rules)
 	if (rules->philos <= 0 || rules->time_die <= 0 || rules->time_eat <= 0
 		|| rules->time_sleep <= 0 || (ac == 6 && rules->must_eat <= 0))
 		return (1);
-	return (0);	
+	return (0);
 }

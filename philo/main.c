@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chagas <chagas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchagas- <bchagas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 01:50:39 by bchagas           #+#    #+#             */
-/*   Updated: 2026/05/26 03:54:25 by chagas           ###   ########.fr       */
+/*   Updated: 2026/05/26 21:03:48 by bchagas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static int	init_rules(t_rules *rules)
 	rules->start_time = get_time();
 	pthread_mutex_init(&rules->print, NULL);
 	pthread_mutex_init(&rules->death, NULL);
-
 	rules->forks = malloc(sizeof(pthread_mutex_t) * rules->philos);
 	if (!rules->forks)
 		return (1);

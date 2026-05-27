@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bchagas- <bchagas-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/26 21:07:04 by bchagas-          #+#    #+#             */
+/*   Updated: 2026/05/26 21:08:50 by bchagas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include <sys/time.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <pthread.h>
+# include <sys/time.h>
 
-#define MAX_INT 2147483647
-#define MAX_LONG 
+# define MAX_INT 2147483647
+# define MAX_LONG 
 
 typedef struct s_rules
 {
@@ -22,7 +34,7 @@ typedef struct s_rules
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		print;
 	pthread_mutex_t		death;
-} t_rules;
+}	t_rules;
 
 typedef struct s_philo
 {
@@ -34,14 +46,12 @@ typedef struct s_philo
 	int					has_right;
 	long				last_meal;
 	int					meals_eaten;
-
-	t_rules			*rules;
-
+	t_rules				*rules;
 }	t_philo;
 
 int		init_forks(t_rules *r);
 int		simulation_finished(t_rules *rules);
-int		parse_args (int ac, char **av, t_rules *rules);
+int		parse_args(int ac, char **av, t_rules *rules);
 long	get_time(void);
 void	*philo_routine(void *arg);
 void	*monitor_routine(void *arg);

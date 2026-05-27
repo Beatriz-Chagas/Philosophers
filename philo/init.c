@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chagas <chagas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bchagas- <bchagas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 23:51:02 by bchagas           #+#    #+#             */
-/*   Updated: 2026/05/26 03:30:40 by chagas           ###   ########.fr       */
+/*   Updated: 2026/05/26 21:03:30 by bchagas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	init_forks(t_rules *r)
 int	init_philos(t_rules *r, t_philo **philos)
 {
 	int	i;
-	
+
 	*philos = malloc(sizeof(t_philo) * r->philos);
 	if (!*philos)
-	return (1);
+		return (1);
 	i = 0;
 	while (i < r->philos)
 	{
