@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchagas- <bchagas-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chagas <chagas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/26 21:07:04 by bchagas-          #+#    #+#             */
-/*   Updated: 2026/05/26 21:08:50 by bchagas-         ###   ########.fr       */
+/*   Updated: 2026/05/28 05:44:24 by chagas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ typedef struct s_philo
 	t_rules				*rules;
 }	t_philo;
 
+int		take_forks(t_philo *p);
 int		init_forks(t_rules *r);
-int		simulation_finished(t_rules *rules);
-int		parse_args(int ac, char **av, t_rules *rules);
+int		simulation_finished(t_rules *rules);int	take_forks(t_philo *p);
+void	put_forks(t_philo *p);int		parse_args(int ac, char **av, t_rules *rules);
 long	get_time(void);
 void	*philo_routine(void *arg);
 void	*monitor_routine(void *arg);

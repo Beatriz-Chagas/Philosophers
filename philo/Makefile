@@ -8,7 +8,8 @@ SRCS = main.c\
 		parse.c\
 		routine.c\
 		time_utils.c\
-		monitoring.c
+		monitoring.c\
+		routine_utils.c
 OBJDIR = obj
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

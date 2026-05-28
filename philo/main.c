@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bchagas- <bchagas-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chagas <chagas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 01:50:39 by bchagas           #+#    #+#             */
-/*   Updated: 2026/05/26 21:03:48 by bchagas-         ###   ########.fr       */
+/*   Updated: 2026/05/28 02:26:38 by chagas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ static t_philo	*init_philos(t_rules *rules)
 		philos[i].rules = rules;
 		philos[i].meals_eaten = 0;
 		philos[i].last_meal = get_time();
+		philos[i].has_left = 0;
+		philos[i].has_right = 0;
 		pthread_create(&philos[i].thread, NULL, philo_routine, &philos[i]);
 		i++;
 	}

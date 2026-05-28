@@ -6,7 +6,7 @@
 /*   By: chagas <chagas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 06:06:13 by bchagas           #+#    #+#             */
-/*   Updated: 2026/05/26 15:10:19 by chagas           ###   ########.fr       */
+/*   Updated: 2026/05/28 05:13:30 by chagas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,16 @@
 
 void	put_forks(t_philo *p)
 {
-	pthread_mutex_unlock(p->left_fork);
-	pthread_mutex_unlock(p->right_fork);
-}
-
-void	take_forks(t_philo *p)
-{
-	pthread_mutex_t	*first;
-	pthread_mutex_t	*second;
-
-	if (simulation_finished(p->rules))
-		return ;
-	first = p->left_fork;
-	second = p->right_fork;
-	if (first == second)
+	if (p->has_left)
 	{
-		pthread_mutex_lock(first);
-		print_status(p, "has taken a fork");
-		ft_usleep(p->rules->time_die, p->rules);
-		pthread_mutex_unlock(first);
-		return ;
+		pthread_mutex_unlock(p->left_fork);
+		p->has_left = 0;
 	}
-	if (first > second)
+	if (p->has_right && p->right_fork != p->left_fork)
 	{
-		first = p->right_fork;
-		second = p->left_fork;
+		pthread_mutex_unlock(p->right_fork);
+		p->has_right = 0;
 	}
-	pthread_mutex_lock(first);
-	print_status(p, "has taken a fork");
-	pthread_mutex_lock(second);
-	print_status(p, "has taken a fork");
 }
 
 void	eat_sleep(t_philo *p)
@@ -68,7 +48,8 @@ void	*philo_routine(void *arg)
 		usleep(1000);
 	while (!simulation_finished(p->rules))
 	{
-		take_forks(p);
+		if (!take_forks(p))
+			continue ;
 		if (simulation_finished(p->rules))
 			break ;
 		eat_sleep(p);
